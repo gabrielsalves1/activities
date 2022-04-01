@@ -1,0 +1,9 @@
+<h2>Atividades cadastradas</h2>
+
+<% if @activities.empty? %>
+    Nenhuma atividade cadastrada
+<% else %>
+    <% @activities.each do |a|%>
+        <%= link_to(a.name, activity_path(a.id)) %> <br/>
+    <% end %>
+<% end %>

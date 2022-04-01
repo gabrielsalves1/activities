@@ -1,0 +1,15 @@
+<h1><%= @activity.name %></h1>
+
+<dl>
+  <dt>Nome</dt>
+  <dd><%= @activity.name %></dd>
+
+  <dt>Descrição</dt>
+  <dd><%= @activity.description %></dd>
+
+  <dt>Data</dt>
+  <dd><%= @activity.date %></dd>
+
+  <dt>Arquivo</dt>
+  <dd><%= image_tag @activity.file if @activity.file.attached? %></dd>
+</dl>

@@ -8,13 +8,13 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @activities = Activity.find(params[:id])
+    @activity = Activity.find(params[:id])
   end
 
   def create
-    activity_params = params.require(:activity).permit(:name, :description, :date)
-    @activity = Category.new(activity_params)
-    return redirect_to @category if @activity.save
+    activity_params = params.require(:activity).permit(:name, :description, :date, :file)
+    @activity = Activity.new(activity_params)
+    return redirect_to @activity if @activity.save
 
     render :new
   end

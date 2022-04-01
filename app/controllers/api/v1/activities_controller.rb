@@ -10,7 +10,7 @@ class Api::V1::ActivitiesController < Api::V1::ApiController
   end
 
   def create
-    activity = Activity.new(name: params[:name], description: params[:description], date: params[:date])
+    activity = Activity.new(name: params[:name], description: params[:description], date: params[:date], file: params[:file])
 
     if activity.save
       render json: activity, status: 201

@@ -1,0 +1,26 @@
+<h2>Atividades</h2>
+
+<%= form_with(model: @activities) do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description %><br />
+    <%= f.text_field :description, autofocus: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :date %><br />
+    <%= f.text_field :date, autofocus: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :file %>
+    <%= f.file_field :file, autofocus: true %>
+  </div>
+ 
+  <%= f.submit 'Gravar' %>
+<% end %>
