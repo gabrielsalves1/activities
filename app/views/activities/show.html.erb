@@ -11,5 +11,5 @@
   <dd><%= @activity.date %></dd>
 
   <dt>Arquivo</dt>
-  <dd><%= image_tag @activity.file if @activity.file.attached? %></dd>
+  <dd><%= image_tag @activity.activityFile if @activity.activityFile.attached? %></dd>
 </dl>

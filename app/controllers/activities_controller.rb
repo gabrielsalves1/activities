@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    activity_params = params.require(:activity).permit(:name, :description, :date, :file)
+    activity_params = params.require(:activity).permit(:name, :description, :date, :activityFile)
     @activity = Activity.new(activity_params)
     return redirect_to @activity if @activity.save
 
