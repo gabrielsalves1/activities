@@ -1,11 +1,16 @@
 class Api::V1::ActivitiesController < Api::V1::ApiController
   def index
     @activities = Activity.all
+
+    render json: @activities.map { |activity|
+      activity.as_json.merge({ name: activity.name, description: activity.description, date: activity.date, activityFile: url_for(activity.activityFile) })
+    }
   end
 
   def show
     @activity = Activity.find(params[:id])
-    render json: @activity.as_json(except: %i[created_at updated_at]), status: 200
+
+    render json: @activity.as_json.merge({ name: @activity.name, description: @activity.description, date: @activity.date, activityFile: url_for(@activity.activityFile) })
   end
 
   def create
