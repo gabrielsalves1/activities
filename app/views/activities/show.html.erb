@@ -12,4 +12,6 @@
 
   <dt>Arquivo</dt>
   <dd><%= image_tag @activity.activityFile if @activity.activityFile.attached? %></dd>
+
+  <%= link_to 'Baixar', @activity.activityFile %>
 </dl>

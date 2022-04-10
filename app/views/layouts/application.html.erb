@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to 'Página Inicial', root_path %> |
+      <%= link_to 'Cadastrar Atividade', new_activity_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>

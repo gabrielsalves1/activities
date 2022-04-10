@@ -3,14 +3,16 @@ class Api::V1::ActivitiesController < Api::V1::ApiController
     @activities = Activity.all
 
     render json: @activities.map { |activity|
-      activity.as_json.merge({ name: activity.name, description: activity.description, date: activity.date, activityFile: url_for(activity.activityFile) })
+      activity.as_json.merge({ name: activity.name, description: activity.description,
+        date: activity.date, activityFileUrl: url_for(activity.activityFile), activityFile_blob: activity.activityFile_blob })
     }
   end
 
   def show
     @activity = Activity.find(params[:id])
 
-    render json: @activity.as_json.merge({ name: @activity.name, description: @activity.description, date: @activity.date, activityFile: url_for(@activity.activityFile) })
+    render json: @activity.as_json.merge({ name: @activity.name, description: @activity.description,
+      date: @activity.date, activityFile: url_for(@activity.activityFile), activityFile_blob: @activity.activityFile_blob })
   end
 
   def create
